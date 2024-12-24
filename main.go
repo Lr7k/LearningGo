@@ -1,24 +1,48 @@
 package main
 
-import (
-  "fmt"
-)
+import "fmt"
 
 //TIP To run your code, right-click the code and select <b>Run</b>. Alternatively, click
 // the <icon src="AllIcons.Actions.Execute"/> icon in the gutter and select the <b>Run</b> menu item from here.
 
 func main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> when your caret is at the underlined or highlighted text
-  // to see how GoLand suggests fixing it.
-  s := "gopher"
-  fmt.Println("Hello and welcome, %s!", s)
-
-  for i := 1; i <= 5; i++ {
-	//TIP You can try debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-	// for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>. To start your debugging session, 
-	// right-click your code in the editor and select the <b>Debug</b> option. 
-	fmt.Println("i =", 100/i)
-  }
+	fmt.Println("for文の基礎")
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+	fmt.Println("continueの利用")
+	for i := 0; i < 10; i++ {
+		if i == 5 {
+			fmt.Println("cotinueで飛ばします")
+			continue
+		}
+		fmt.Println(i)
+	}
+	fmt.Println("breakの利用")
+	for i := 0; i < 10; i++ {
+		if i > 5 {
+			fmt.Println("breakで抜けます")
+			break
+		}
+		fmt.Println(i)
+	}
+	fmt.Println("rangeの利用")
+	var languages []string = []string{"python", "java", "go"}
+	for i := 0; i < len(languages); i++ {
+		fmt.Println(languages[i])
+	}
+	for i, v := range languages {
+		fmt.Println(i, v)
+	}
+	fmt.Println("rangeのindexを使わない場合")
+	for _, v := range languages {
+		fmt.Println(v)
+	}
+	fmt.Println("mapとrangeの組み合わせ")
+	var m map[string]int = map[string]int{"a": 1, "b": 2, "c": 3}
+	for k, v := range m {
+		fmt.Println(k, v)
+	}
 }
 
 //TIP See GoLand help at <a href="https://www.jetbrains.com/help/go/">jetbrains.com/help/go/</a>.
